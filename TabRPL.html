@@ -1,362 +1,281 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+	<style>
+	body {font-family:'Arial';}
 
-<style>
-body {font-family:'Arial';}
+	.accordionWrapper{
+	padding:0px;
+	background:#fff;
+	float:left;
+	width:100%;
+	margin:0;    
+	}
+	.accordionItem{
+	   float:left;
+	   display:block;
+	   width:100%;
+	   box-sizing: border-box;
+	   font-family:'Open-sans',Arial,sans-serif;
+	}
+	.accordionItemHeading{
+	   cursor:pointer;
+	   margin:0px 0px 10px 0px;
+	   padding:15px;
+	   background-color:rgb(172, 225, 53);
+	   color:#044266;
+	   width:100%;
+	   -webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	       box-sizing: border-box;
+	       font-weight: bold;
+	}
+	.close .accordionItemContent{
+	   height:0px;
+	   transition:height 1s ease-out;
+	   -webkit-transform: scaleY(0);
+	   -o-transform: scaleY(0);
+	   -ms-transform: scaleY(0);
+	   transform: scaleY(0);
+	   float:left;
+	   display:block;
+	   
+	   
+	}
+	.open .accordionItemContent{
+	       padding: 20px;
+	   background-color: #fff;
+	   border: 1px solid #ddd;
+	   width: 100%;
+	   margin: 0px 0px 10px 0px;
+	   display:block;
+	   -webkit-transform: scaleY(1);
+	   -o-transform: scaleY(1);
+	   -ms-transform: scaleY(1);
+	   transform: scaleY(1);
+	   -webkit-transform-origin: top;
+	   -o-transform-origin: top;
+	   -ms-transform-origin: top;
+	   transform-origin: top;
 
-.accordionWrapper{
-padding:0px;
-background:#fff;
-float:left;
-width:100%%;
-margin:0;    
-}
-.accordionItem{
-    float:left;
-    display:block;
-    width:100%;
-    box-sizing: border-box;
-    font-family:'Open-sans',Arial,sans-serif;
-}
-.accordionItemHeading{
-    cursor:pointer;
-    margin:0px 0px 10px 0px;
-    padding:15px;
-    background-color:rgb(172, 225, 53);
-    color:#044266;
-    width:100%;
-    -webkit-border-radius: 3px;
--moz-border-radius: 3px;
-border-radius: 3px;
-        box-sizing: border-box;
-		font-weight: bold;
-}
-.close .accordionItemContent{
-    height:0px;
-    transition:height 1s ease-out;
-    -webkit-transform: scaleY(0);
-	-o-transform: scaleY(0);
-	-ms-transform: scaleY(0);
-	transform: scaleY(0);
-    float:left;
-    display:block;
-    
-    
-}
-.open .accordionItemContent{
-        padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    width: 100%;
-    margin: 0px 0px 10px 0px;
-    display:block;
-    -webkit-transform: scaleY(1);
-	-o-transform: scaleY(1);
-	-ms-transform: scaleY(1);
-	transform: scaleY(1);
-    -webkit-transform-origin: top;
-	-o-transform-origin: top;
-	-ms-transform-origin: top;
-	transform-origin: top;
+	   -webkit-transition: -webkit-transform 0.4s ease-out;
+	   -o-transition: -o-transform 0.4s ease;
+	   -ms-transition: -ms-transform 0.4s ease;
+	   transition: transform 0.4s ease;
+	       box-sizing: border-box;
+	       font-family:'Arial';
+	}
 
-	-webkit-transition: -webkit-transform 0.4s ease-out;
-	-o-transition: -o-transform 0.4s ease;
-	-ms-transition: -ms-transform 0.4s ease;
-	transition: transform 0.4s ease;
-        box-sizing: border-box;
-		font-family:'Arial';
-}
+	.open .accordionItemHeading{
+	   margin:0px;
+	       -webkit-border-top-left-radius: 3px;
+	   -webkit-border-top-right-radius: 3px;
+	   -moz-border-radius-topleft: 3px;
+	   -moz-border-radius-topright: 3px;
+	   border-top-left-radius: 3px;
+	   border-top-right-radius: 3px;
+	   -webkit-border-bottom-right-radius: 0px;
+	   -webkit-border-bottom-left-radius: 0px;
+	   -moz-border-radius-bottomright: 0px;
+	   -moz-border-radius-bottomleft: 0px;
+	   border-bottom-right-radius: 0px;
+	   border-bottom-left-radius: 0px;
+	   background-color: #fede00;
+	   color: #044266;
+	   font-weight: bold;
+	}
 
-.open .accordionItemHeading{
-    margin:0px;
-        -webkit-border-top-left-radius: 3px;
-    -webkit-border-top-right-radius: 3px;
-    -moz-border-radius-topleft: 3px;
-    -moz-border-radius-topright: 3px;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    -webkit-border-bottom-right-radius: 0px;
-    -webkit-border-bottom-left-radius: 0px;
-    -moz-border-radius-bottomright: 0px;
-    -moz-border-radius-bottomleft: 0px;
-    border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-    background-color: #fede00;
-    color: #044266;
-	font-weight: bold;
-}
-
-</style>
+	</style>
+	<title>RPL</title>
 </head>
 <body>
-<h1>Recognition of Prior Learning Information</h1>
-<div class="accordionWrapper">
-<div class="accordionItem close">
-      <div class="accordionItemHeading"><i class="fa fa-award"></i> What
-            is Recognition of Prior Learning (RPL)?</strong></div>
-      <div class="accordionItemContent">
-          RPL is the acknowledgment of skills and knowledge 
-	      obtained through learning achieved outside the 
-	      formal education and training system and 
-	      includes work and life experience including 
-	      paid and volunteer work and skills attained through leisure pursuits
-			
-	      <br>	
-            RPL recognises any prior knowledge and experience 
-	      and measures it against the qualification in 
-	      which candidates are enrolled. The individual 
-	      may not need to complete all of a training 
-	      program if he or she already possesses some of the competencies taught in the program.<br>
-            <p>The Standards for Registered Training Organisations (RTOs) 2015 defines RPL as: </p>
-          <p style="margin-left: 40px;"><i>"an assessment process that assesses
-              the competency/s of an individual that may have been acquired
-              through formal, non-formal and informal learning to determine the
-              extent to which that individual meets the requirements specified in the training package or VET accredited
-              courses.</i></p>
-          <div style="margin-left: 40px;"> </div>
-          <p style="margin-left: 40px;" align="left"><em>a) formal learning
-              refers to learning that takes place through a structured program
-              of instruction and is linked to the attainment of an AQF
-              qualification or statement of attainment (for example, a
-              certificate, diploma or university degree);
-			  <br><br>
-              b) non-formal learning refers to learning that takes place through
-              a structured program of instruction, but does not lead to the
-              attainment of an AQF qualification or statement of attainment (for
-              example, in-house professional development programs conducted by a
-              business); and
-			  <br><br>
-              c) informal learning refers to learning that results through
-              experience of work-related, social, family, hobby or leisure
-              activities (for example the acquisition of interpersonal skills
-              developed through several years as a sales representative)."</em></p>
-      </div>
-	 </div>
-
-    <div class="accordionItem close">
-      <div class="accordionItemHeading"><i class="fas fa-question"></i> <strong>Why
-            you should apply for RPL</strong></div>
-      <div class="accordionItemContent">
-If you apply for RPL and your application is
-          successful you could:
-          <ul>
-            <li>reduce or eliminate the need for any training in skills and
-              knowledge you already have</li>
-            <li>save time by not needing to attend any or a reduced number of
-              classes and completing unnecessary work</li>
-            <li>complete your qualification in a shorter time</li>
-            <li>advance to a higher-level qualification in a shorter time if
-              desired.</li>
-          </ul>
-          <p>RPL assessment enables individuals to forego training and 
-		  move directly to having their competencies assessed, 
-		  thus avoiding the need for unnecessary training 
-		  that brings with it additional costs, including 
-		  time and effort. Although it is not necessarily 
-		  a quick or simple process, RPL aims to provide 
-		  candidates who do not require formal learning 
-		  with a flexible and faster way to have their skills and knowledge 
-		  assessed against the competencies stipulated in Training Packages and 
-		  vocationally accredited courses. Mature age jobseekers or existing workers 
-		  with accumulated life and work experiences are seen as primary candidates for RPL.</p>
-          <ul>
-          </ul>
-      </div>
-    </div>
-
-    <div class="accordionItem close">
-      <div class="accordionItemHeading"><i class="fas fa-thumbs-up"></i> <strong>Benefits
-            of applying for RPL</strong></div>
-      <div class="accordionItemContent">
-RPL can be used in two ways:
-          <ol>
-            <li>As an alternative mechanism for gaining access to a course or qualification. 
-		    A candidate may gain entry to a course or qualification using RPL as an alternative 
-		    to possessing the prerequisites for entry based on formal education and training. 
-		    An example of this is a candidate who obtains a place in a diploma course using 
-		    RPL (based on life or work experience) when they have not completed the relevant prerequisites; and/or</li>
-            <li>For the award of unit/s of competency that form part of a qualification, 
-		    leading to the partial or full completion of the requirements for 
-		    that course or qualification.</li>
-          </ol>
-      </div>
-    </div>
-	
-	    <div class="accordionItem close">
-      <div class="accordionItemHeading"><i class="fas fa-book"></i> <strong>Points to consider</strong></div>
-      <div class="accordionItemContent">
-When completing the application consider the below:
-          <ul>
-	<li>Talk about your job roles and your work history, where you have worked, either paid or unpaid, and what you did there.</li>
-	<li>Your position description and any performance appraisals you have from any company you have worked in.</li>
-	<li>Consider the possibilities for workplace contact. Are you in a workplace that is supporting your goals to get qualified? Would they provide you with references, would you feel comfortable to have the assessor contact your workplace or previous workplaces, so your skills can be validated? </li>
-	<li>Think about who can confirm your current skill level. Think about current or recent supervisors who have seen you work in the past 18 months and will be able to confirm your skills. The assessor will need to contact them. You may also have community contacts or even clients themselves who can vouch for your skills level.</li>
-	<li>Collect any certificates from in-house training or formal training you have done in the past.</li>
-	<li>Think about the workplace documents that you either produce, process or check. Maybe they can be used to demonstrate your skill level.</li>
-          </ul>
-      </div>
-    </div>
-	
-		    <div class="accordionItem close">
-      <div class="accordionItemHeading"> <i class="fas fa-list-ol"></i> <strong>The Process</strong></div>
-      <div class="accordionItemContent">
-To have skills formally recognised nationally, 
-	      trainers and assessors must make 
-	      sure you have the skills and 
-	      knowledge to meet the unit requirements 
-	      and industry standard. This means you must be involved in a 
-	      careful and comprehensive process that covers the content 
-	      of all units within a qualification you can be recognised for.
-        <br><br>
-You can apply for RPL for all the units within a qualification or for as 
-	      little as one unit. We provide you with a list of the units 
-	      which form part of the qualification you are enrolling into 
-	      to help you determine if RPL is the best option for you. 
-		  <br><br>
-Units of competency are broken into elements. You must demonstrate that you have 
-	      the skills and/or knowledge for <u>each of those elements</u>.
-	      <br></br>
-The completion of the RPL Kit involves you telling us how you believe you have 
-			    the skills and knowledge by mapping your work experience, 
-			    general life experience and any formal and/or informal training 
-			    against the different elements which form part of each unit of competency. 			    
-			    <br></br>
-	You are also required to provide evidence to back up your statements. The evidence must be:
-	
-          <ul>
-	<li>current, no more than 18th months old.</li>
-	<li>valid, must be relevant to the elements /unit you are providing the evidence for.</li>
-	<li>reliable, can be corroborated as authentic. The assessor will verify all the evidence provided.</li>
-          </ul>
-	This supporting evidence can vary and may include the below: 
-	<ul>
-	<li>A current CV - it is very important this is current and includes tasks relevant to the units for which you are seeking RPL </li>
-	<li>Copies of formal and informal training certificates/statements. i.e. Statements of attainment, Certificates, Certificates of Attendance/Participation in workplace education... </li>
-	<li>Position Descriptions from previous/current roles</li>
-	<li>Job References</li>
-	<li>Examples of work documents</li>
-	<li>Job contracts</li>
-	<li>Documents displaying skills relevant to the units</li>
-	<li>Videos demonstrating your skills</li>
-	<li>Third party reports </li>
-	<li>Observation checklist completed by a supervisor</li>	
-	</ul>
-You must ensure that the evidence is clearly named in the Evidence Register and against the unit elements to which the evidence related to. It is not up to the assessor to map the evidence against the unit of competency requirements. 
-<br>
-In order to grant RPL the assessor must be confident that the applicant is currently competent against the endorsed industry or enterprise competency standards or outcomes specified in Australian Qualification Framework accredited courses.
-<br>
-The assessor must assess the evidence based on the following principles:
-<br>
-<strong>Is it Authentic?</strong>
-<ul>
-	<li>is the evidence the candidate's own work?</li>
-	<li>are the qualifications, references and licences presented authentic documents?</li>
-</ul>
-
-<strong>Is it Current?</strong>
-<ul>
-	<li>does the evidence show that the candidate can currently perform the competence while working?</li>
-	<li>does the evidence demonstrate that through professional development, experience or continued employment that the skills and knowledge are current?</li>
-</ul>
-
-<strong>Is it Sufficient?</strong>
-<ul>
-	<li>does the evidence cover the full range of performance identified in the unit of competency?</li>
-<li>does the evidence show competence developed over a period of time?</li>
-<li>does the evidence show competence in a range of contexts?</li>
-</ul>
-
-<strong>Is it Valid?</strong>
-<ul>
-<li>does the evidence relate to a unit of competence?</li>
-<li>does the evidence reflect the dimensions of competency?</li>
-<li>does the evidence address the key competencies?</li>
-</ul>
-
-		
-      </div>
-    </div>
-	
-		    <div class="accordionItem close">
-      <div class="accordionItemHeading"><i class="fas fa-lock"></i> <strong>Confidentiality
-            issues</strong></div>
-      <div class="accordionItemContent">
-It is important that sensitive information is not included as 
-	      part of your Supporting Documentation. You may need 
-	      authorisation from your supervisor or manager to use 
-	      some of your evidence, so it is always best to check 
-	      the privacy and confidentiality policies of the organisation. 
-	      Client names should be deleted, and financial figures or 
-	      other personal details should be blacked out and made unidentifiable.
-	      <br></br>
-			    <strong>Please Note: </strong>
-			    <ul>
-				    <li>All documents in languages other than English will need to be translated through a translating service into English at your own cost before submission. </li>
-	<li>The verified documents must state that the person signing the document has sighted the original and verifies it is a true copy of the original. </li>
-	<li>To assist you in your application, BAA has provided you with a copy of the unit/s of competency or reference to the training.gov.au website, where applicable. The Assessor will guide you through the process and supply their contact details for any additional support you may need in this stage of the process. </li>
-	<li>You will also be required to provide contact details for at least one referee who can confirm your industry skills in context and over time. Your nominated contacts may be contacted by the Assessor to verify the information supplied</li>
-			    </ul>
-Depending on the company you have worked for, you may or may not have documentary evidence available. This should not deter you from seeking RPL as the Assessor will work with you during the RPL process.
-<br></br>
-You will also need to supply contact details of one or two work referees who can confirm your skills in the industry. (Referee Form is provided in Section 3)
-      </div>
-    </div>
-
-	<div class="accordionItem close">
-      <div class="accordionItemHeading"><i class="fas fa-search"></i> <strong>The assessment</strong></div>
-      <div class="accordionItemContent">
-Where the assessor is unable to make a judgment from the evidence presented, the assessor may undertake or request for any of the following to occur: 
-	      <ul>
-	<li>All documents in languages other than English will need to be translated through a translating service into English at your own cost before submission. </li>
-	<li>The verified documents must state that the person signing the document has sighted the original and verifies it is a true copy of the original. </li>
-	<li>To assist you in your application, BAA has provided you with a copy of the unit/s of competency or reference to the training.gov.au website, where applicable. The Assessor will guide you through the process and supply their contact details for any additional support you may need in this stage of the process. </li>
-	<li>You will also be required to provide contact details for at least one referee who can confirm your industry skills in context and over time. Your nominated contacts may be contacted by the Assessor to verify the information supplied</li>
-</ul>
-	At the end of the Assessment, the assessor is required to complete an "Evidence Analysis" of the evidence you have provided.	
-      </div>
-    </div>
-
-	  <div class="accordionItem close">
-      <div class="accordionItemHeading"><i class="fas fa-check-circle"></i> <strong>Communication of results (success) of the application</strong></div>
-      <div class="accordionItemContent">
-The RPL assessor will be in contact with you to communicate the findings and subsequent results of your application. This will also be followed up in writing and sent to you. This open communication enables discussion of the assessment result and explanation of the assessment rationale.
-        <br><br>
-If the application is rejected, the process enables you to discuss any grounds for an appeal which you may wish to present. You may request further assessment, re-apply providing additional information and evidence or appeal the decision, via the complaints and appeals process.
-		  <br><br>
-For a successful assessment, the results are provided to Student Data Team to update the Student Management System with the final result towards the qualification or a qualification issued (if the application related to a full qualification) or Statement of Attainment issued if for one or more units of competence, but not a full qualification.
- <br><br>
- The RPL application, copies of evidence, supporting documentation and final results are placed on your file and retained in accordance with the RTO?s Guidelines for Student Records Policy and Procedure.
- <br><br>
- If skills gaps have been identified, these may be addressed through training.
- <br><br>
- This RPL process has been developed to streamline an application for Recognition of Prior Learning.
-      </div>
-    </div>
+	<h1>Recognition of Prior Learning Information</h1>
+	<div class="accordionWrapper">
+		<div class="accordionItem close">
+			<div class="accordionItemHeading">
+				<i class="fa fa-award"></i> What is Recognition of Prior Learning (RPL)?
+			</div>
+			<div class="accordionItemContent">
+				RPL is the acknowledgment of skills and knowledge obtained through learning achieved outside the formal education and training system and includes work and life experience including paid and volunteer work and skills attained through leisure pursuits<br>
+				RPL recognises any prior knowledge and experience and measures it against the qualification in which candidates are enrolled. The individual may not need to complete all of a training program if he or she already possesses some of the competencies taught in the program.<br>
+				<p>The Standards for Registered Training Organisations (RTOs) 2015 defines RPL as:</p>
+				<p style="margin-left: 40px;"><i>"an assessment process that assesses the competency/s of an individual that may have been acquired through formal, non-formal and informal learning to determine the extent to which that individual meets the requirements specified in the training package or VET accredited courses.</i></p>
+				<div style="margin-left: 40px;"></div>
+				<p align="left" style="margin-left: 40px;"><em>a) formal learning refers to learning that takes place through a structured program of instruction and is linked to the attainment of an AQF qualification or statement of attainment (for example, a certificate, diploma or university degree);<br>
+				<br>
+				b) non-formal learning refers to learning that takes place through a structured program of instruction, but does not lead to the attainment of an AQF qualification or statement of attainment (for example, in-house professional development programs conducted by a business); and<br>
+				<br>
+				c) informal learning refers to learning that results through experience of work-related, social, family, hobby or leisure activities (for example the acquisition of interpersonal skills developed through several years as a sales representative)."</em></p>
+			</div>
+		</div>
+		<div class="accordionItem close">
+			<div class="accordionItemHeading">
+				<i class="fas fa-question"></i> <strong>Why you should apply for RPL</strong>
+			</div>
+			<div class="accordionItemContent">
+				If you apply for RPL and your application is successful you could:
+				<ul>
+					<li>reduce or eliminate the need for any training in skills and knowledge you already have</li>
+					<li>save time by not needing to attend any or a reduced number of classes and completing unnecessary work</li>
+					<li>complete your qualification in a shorter time</li>
+					<li>advance to a higher-level qualification in a shorter time if desired.</li>
+				</ul>
+				<p>RPL assessment enables individuals to forego training and move directly to having their competencies assessed, thus avoiding the need for unnecessary training that brings with it additional costs, including time and effort. Although it is not necessarily a quick or simple process, RPL aims to provide candidates who do not require formal learning with a flexible and faster way to have their skills and knowledge assessed against the competencies stipulated in Training Packages and vocationally accredited courses. Mature age jobseekers or existing workers with accumulated life and work experiences are seen as primary candidates for RPL.</p>
+				<ul></ul>
+			</div>
+		</div>
+		<div class="accordionItem close">
+			<div class="accordionItemHeading">
+				<i class="fas fa-thumbs-up"></i> <strong>Benefits of applying for RPL</strong>
+			</div>
+			<div class="accordionItemContent">
+				RPL can be used in two ways:
+				<ol>
+					<li>As an alternative mechanism for gaining access to a course or qualification. A candidate may gain entry to a course or qualification using RPL as an alternative to possessing the prerequisites for entry based on formal education and training. An example of this is a candidate who obtains a place in a diploma course using RPL (based on life or work experience) when they have not completed the relevant prerequisites; and/or</li>
+					<li>For the award of unit/s of competency that form part of a qualification, leading to the partial or full completion of the requirements for that course or qualification.</li>
+				</ol>
+			</div>
+		</div>
+		<div class="accordionItem close">
+			<div class="accordionItemHeading">
+				<i class="fas fa-book"></i> <strong>Points to consider</strong>
+			</div>
+			<div class="accordionItemContent">
+				When completing the application consider the below:
+				<ul>
+					<li>Talk about your job roles and your work history, where you have worked, either paid or unpaid, and what you did there.</li>
+					<li>Your position description and any performance appraisals you have from any company you have worked in.</li>
+					<li>Consider the possibilities for workplace contact. Are you in a workplace that is supporting your goals to get qualified? Would they provide you with references, would you feel comfortable to have the assessor contact your workplace or previous workplaces, so your skills can be validated?</li>
+					<li>Think about who can confirm your current skill level. Think about current or recent supervisors who have seen you work in the past 18 months and will be able to confirm your skills. The assessor will need to contact them. You may also have community contacts or even clients themselves who can vouch for your skills level.</li>
+					<li>Collect any certificates from in-house training or formal training you have done in the past.</li>
+					<li>Think about the workplace documents that you either produce, process or check. Maybe they can be used to demonstrate your skill level.</li>
+				</ul>
+			</div>
+		</div>
+		<div class="accordionItem close">
+			<div class="accordionItemHeading">
+				<i class="fas fa-list-ol"></i> <strong>The Process</strong>
+			</div>
+			<div class="accordionItemContent">
+				To have skills formally recognised nationally, trainers and assessors must make sure you have the skills and knowledge to meet the unit requirements and industry standard. This means you must be involved in a careful and comprehensive process that covers the content of all units within a qualification you can be recognised for.<br>
+				<br>
+				You can apply for RPL for all the units within a qualification or for as little as one unit. We provide you with a list of the units which form part of the qualification you are enrolling into to help you determine if RPL is the best option for you.<br>
+				<br>
+				Units of competency are broken into elements. You must demonstrate that you have the skills and/or knowledge for <u>each of those elements</u>.<br>
+				<br>
+				The completion of the RPL Kit involves you telling us how you believe you have the skills and knowledge by mapping your work experience, general life experience and any formal and/or informal training against the different elements which form part of each unit of competency.<br>
+				<br>
+				You are also required to provide evidence to back up your statements. The evidence must be:
+				<ul>
+					<li>current, no more than 18th months old.</li>
+					<li>valid, must be relevant to the elements /unit you are providing the evidence for.</li>
+					<li>reliable, can be corroborated as authentic. The assessor will verify all the evidence provided.</li>
+				</ul>This supporting evidence can vary and may include the below:
+				<ul>
+					<li>A current CV - it is very important this is current and includes tasks relevant to the units for which you are seeking RPL</li>
+					<li>Copies of formal and informal training certificates/statements. i.e. Statements of attainment, Certificates, Certificates of Attendance/Participation in workplace education...</li>
+					<li>Position Descriptions from previous/current roles</li>
+					<li>Job References</li>
+					<li>Examples of work documents</li>
+					<li>Job contracts</li>
+					<li>Documents displaying skills relevant to the units</li>
+					<li>Videos demonstrating your skills</li>
+					<li>Third party reports</li>
+					<li>Observation checklist completed by a supervisor</li>
+				</ul>You must ensure that the evidence is clearly named in the Evidence Register and against the unit elements to which the evidence related to. It is not up to the assessor to map the evidence against the unit of competency requirements.<br>
+				In order to grant RPL the assessor must be confident that the applicant is currently competent against the endorsed industry or enterprise competency standards or outcomes specified in Australian Qualification Framework accredited courses.<br>
+				The assessor must assess the evidence based on the following principles:<br>
+				<strong>Is it Authentic?</strong>
+				<ul>
+					<li>is the evidence the candidate's own work?</li>
+					<li>are the qualifications, references and licences presented authentic documents?</li>
+				</ul><strong>Is it Current?</strong>
+				<ul>
+					<li>does the evidence show that the candidate can currently perform the competence while working?</li>
+					<li>does the evidence demonstrate that through professional development, experience or continued employment that the skills and knowledge are current?</li>
+				</ul><strong>Is it Sufficient?</strong>
+				<ul>
+					<li>does the evidence cover the full range of performance identified in the unit of competency?</li>
+					<li>does the evidence show competence developed over a period of time?</li>
+					<li>does the evidence show competence in a range of contexts?</li>
+				</ul><strong>Is it Valid?</strong>
+				<ul>
+					<li>does the evidence relate to a unit of competence?</li>
+					<li>does the evidence reflect the dimensions of competency?</li>
+					<li>does the evidence address the key competencies?</li>
+				</ul>
+			</div>
+		</div>
+		<div class="accordionItem close">
+			<div class="accordionItemHeading">
+				<i class="fas fa-lock"></i> <strong>Confidentiality issues</strong>
+			</div>
+			<div class="accordionItemContent">
+				It is important that sensitive information is not included as part of your Supporting Documentation. You may need authorisation from your supervisor or manager to use some of your evidence, so it is always best to check the privacy and confidentiality policies of the organisation. Client names should be deleted, and financial figures or other personal details should be blacked out and made unidentifiable.<br>
+				<br>
+				<strong>Please Note:</strong>
+				<ul>
+					<li>All documents in languages other than English will need to be translated through a translating service into English at your own cost before submission.</li>
+					<li>The verified documents must state that the person signing the document has sighted the original and verifies it is a true copy of the original.</li>
+					<li>To assist you in your application, BAA has provided you with a copy of the unit/s of competency or reference to the training.gov.au website, where applicable. The Assessor will guide you through the process and supply their contact details for any additional support you may need in this stage of the process.</li>
+					<li>You will also be required to provide contact details for at least one referee who can confirm your industry skills in context and over time. Your nominated contacts may be contacted by the Assessor to verify the information supplied</li>
+				</ul>Depending on the company you have worked for, you may or may not have documentary evidence available. This should not deter you from seeking RPL as the Assessor will work with you during the RPL process.<br>
+				<br>
+				You will also need to supply contact details of one or two work referees who can confirm your skills in the industry. (Referee Form is provided in Section 3)
+			</div>
+		</div>
+		<div class="accordionItem close">
+			<div class="accordionItemHeading">
+				<i class="fas fa-search"></i> <strong>The assessment</strong>
+			</div>
+			<div class="accordionItemContent">
+				Where the assessor is unable to make a judgment from the evidence presented, the assessor may undertake or request for any of the following to occur:
+				<ul>
+					<li>All documents in languages other than English will need to be translated through a translating service into English at your own cost before submission.</li>
+					<li>The verified documents must state that the person signing the document has sighted the original and verifies it is a true copy of the original.</li>
+					<li>To assist you in your application, BAA has provided you with a copy of the unit/s of competency or reference to the training.gov.au website, where applicable. The Assessor will guide you through the process and supply their contact details for any additional support you may need in this stage of the process.</li>
+					<li>You will also be required to provide contact details for at least one referee who can confirm your industry skills in context and over time. Your nominated contacts may be contacted by the Assessor to verify the information supplied</li>
+				</ul>At the end of the Assessment, the assessor is required to complete an "Evidence Analysis" of the evidence you have provided.
+			</div>
+		</div>
+		<div class="accordionItem close">
+			<div class="accordionItemHeading">
+				<i class="fas fa-check-circle"></i> <strong>Communication of results (success) of the application</strong>
+			</div>
+			<div class="accordionItemContent">
+				The RPL assessor will be in contact with you to communicate the findings and subsequent results of your application. This will also be followed up in writing and sent to you. This open communication enables discussion of the assessment result and explanation of the assessment rationale.<br>
+				<br>
+				If the application is rejected, the process enables you to discuss any grounds for an appeal which you may wish to present. You may request further assessment, re-apply providing additional information and evidence or appeal the decision, via the complaints and appeals process.<br>
+				<br>
+				For a successful assessment, the results are provided to Student Data Team to update the Student Management System with the final result towards the qualification or a qualification issued (if the application related to a full qualification) or Statement of Attainment issued if for one or more units of competence, but not a full qualification.<br>
+				<br>
+				The RPL application, copies of evidence, supporting documentation and final results are placed on your file and retained in accordance with the RTO?s Guidelines for Student Records Policy and Procedure.<br>
+				<br>
+				If skills gaps have been identified, these may be addressed through training.<br>
+				<br>
+				This RPL process has been developed to streamline an application for Recognition of Prior Learning.
+			</div>
+		</div>
 	</div>
-
-
-	
-</div>
-
-<script>
-	var accItem = document.getElementsByClassName('accordionItem');
-    var accHD = document.getElementsByClassName('accordionItemHeading');
-    for (i = 0; i < accHD.length; i++) {
-        accHD[i].addEventListener('click', toggleItem, false);
-    }
-    function toggleItem() {
-        var itemClass = this.parentNode.className;
-        for (i = 0; i < accItem.length; i++) {
-            accItem[i].className = 'accordionItem close';
-        }
-        if (itemClass == 'accordionItem close') {
-            this.parentNode.className = 'accordionItem open';
-        }
-    }
-</script>
+	<script>
+	   var accItem = document.getElementsByClassName('accordionItem');
+	   var accHD = document.getElementsByClassName('accordionItemHeading');
+	   for (i = 0; i < accHD.length; i++) {
+	       accHD[i].addEventListener('click', toggleItem, false);
+	   }
+	   function toggleItem() {
+	       var itemClass = this.parentNode.className;
+	       for (i = 0; i < accItem.length; i++) {
+	           accItem[i].className = 'accordionItem close';
+	       }
+	       if (itemClass == 'accordionItem close') {
+	           this.parentNode.className = 'accordionItem open';
+	       }
+	   }
+	</script>
 </body>
 </html>
